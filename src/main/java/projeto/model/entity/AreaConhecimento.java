@@ -9,24 +9,24 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Insignia {
+public class AreaConhecimento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idInsignia;
+    private int idAreaConhecimento;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 50)
     private String nome;
 
-    public Insignia() {
+    public AreaConhecimento() {
     }
 
-    public Insignia(String nome) {
+    public AreaConhecimento(String nome) {
         this.nome = nome;
     }
 
-    public Insignia(int idInsignia, String nome) {
-        this.idInsignia = idInsignia;
+    public AreaConhecimento(int idAreaConhecimento, String nome) {
+        this.idAreaConhecimento = idAreaConhecimento;
         this.nome = nome;
     }
 }

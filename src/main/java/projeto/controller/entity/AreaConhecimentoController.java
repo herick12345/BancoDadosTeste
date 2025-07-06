@@ -12,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import projeto.model.entity.Insignia;
-import projeto.repository.InsigniaRepository;
+import projeto.model.entity.AreaConhecimento;
+import projeto.repository.AreaConhecimentoRepository;
 
 @RestController
-@RequestMapping("/insignia")
-public class InsigniaController {
+@RequestMapping("/area-conhecimento")
+public class AreaConhecimentoController {
 
     @Autowired
-    private InsigniaRepository repository;
+    private AreaConhecimentoRepository repository;
 
     @GetMapping
-    public List<Insignia> getAll() {
+    public List<AreaConhecimento> getAll() {
         return repository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Insignia> getById(@PathVariable Integer id) {
+    public Optional<AreaConhecimento> getById(@PathVariable Integer id) {
         return repository.findById(id);
     }
 
     @PostMapping
-    public Insignia create(@RequestBody Insignia obj) {
+    public AreaConhecimento create(@RequestBody AreaConhecimento obj) {
         return repository.save(obj);
     }
 
