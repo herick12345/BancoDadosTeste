@@ -1,0 +1,49 @@
+package projeto.controller.id;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import projeto.model.entity.DistintivoJovem;
+import projeto.model.id.DistintivoJovemId;
+import projeto.repository.DistintivoJovemRepository;
+
+@RestController
+@RequestMapping("/distintivo-jovem")
+public class DistintivoJovemController {
+
+    @Autowired
+    private DistintivoJovemRepository repository;
+
+    @GetMapping
+    public List<DistintivoJovem> getAll() {
+        return repository.findAll();
+    }
+
+    @GetMapping("/{idDistintivo}/{idJovem}")
+    public Optional<DistintivoJovem> getById(@PathVariable Integer idDistintivo, @PathVariable Integer idJovem) {
+        DistintivoJovemId id = new DistintivoJovemId(idDistintivo, idJovem);
+        return repository.findById(id);
+    }
+
+    @PostMapping
+    public DistintivoJovem create(@RequestBody DistintivoJovem obj) {
+        return repository.save(obj);
+    }
+
+
+
+    @DeleteMapping("/{idDistintivo}/{idJovem}")
+    public void delete(@PathVariable Integer idDistintivo, @PathVariable Integer idJovem) {
+        DistintivoJovemId id = new DistintivoJovemId(idDistintivo, idJovem);
+        repository.deleteById(id);
+    }
+}
