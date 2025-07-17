@@ -1,0 +1,28 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.debug.settings.onBuildFailureProceed": true,
+    "spring-boot.ls.problem.application-properties.enabled": true,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3334,
+            "driver": "MySQL",
+            "name": "Sistema Escoteiro - MySQL",
+            "database": "bcd",
+            "username": "aluno",
+            "password": "aluno",
+            "connectionTimeout": 60000
+        }
+    ],
+    "sqltools.useNodeRuntime": true,
+    "sqltools.format": {
+        "language": "sql",
+        "indent": "  "
+    }
+}

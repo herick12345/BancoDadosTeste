@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Sistema Escoteiro - Spring Boot",
+            "request": "launch",
+            "mainClass": "ads.bcd.Application",
+            "projectName": "bcd",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "dev"
+            },
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "java",
+            "name": "Debug Sistema Escoteiro",
+            "request": "launch",
+            "mainClass": "ads.bcd.Application",
+            "projectName": "bcd",
+            "args": "",
+            "vmArgs": "-Dspring.profiles.active=dev -Dspring.devtools.restart.enabled=true",
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "recommendations": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-spring-initializr",
+        "vscjava.vscode-spring-boot-dashboard",
+        "pivotal.vscode-spring-boot",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql",
+        "formulahendry.auto-rename-tag",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode-remote.remote-containers"
+    ]
+}
