@@ -1,45 +1,20 @@
+version: '3.8'
+
 services:
   mysql:
-    image: mysql
-    container_name: sistema-escoteiro-mysql
+    image: mysql/mysql-server:latest
+    container_name: meumysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: senhaRoot
+      MYSQL_ROOT_PASSWORD: aluno
       MYSQL_DATABASE: bcd
       MYSQL_USER: aluno
       MYSQL_PASSWORD: aluno
       MYSQL_ROOT_HOST: '%'
-    ports:
-      - "3333:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d
-    restart: unless-stopped
-    command: --default-authentication-plugin=mysql_native_password
-    # healthcheck:
-    #   test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-    #   timeout: 20s
-    #   retries: 10
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: sistema-escoteiro-phpmyadmin
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-      PMA_USER: aluno
-      PMA_PASSWORD: aluno
-      MYSQL_ROOT_PASSWORD: senhaRoot
-    ports:
-      - "8081:80"
-    # depends_on:
-    #   mysql:
-    #     condition: service_healthy
-    restart: unless-stopped
+      - meumysql_data:/var/lib/mysql
 
 volumes:
-  mysql_data:
-    driver: local
-
-networks:
-  default:
-    name: sistema-escoteiro-network
+  meumysql_data:

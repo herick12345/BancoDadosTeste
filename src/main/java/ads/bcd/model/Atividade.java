@@ -21,7 +21,7 @@ public class Atividade {
     private Integer idAtividade;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String desc;
+    private String descricao;
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
@@ -30,14 +30,14 @@ public class Atividade {
     protected Atividade() {
     }
 
-    public Atividade(String desc, Date data) {
-        this.desc = desc;
+    public Atividade(String descricao, Date data) {
+        this.descricao = descricao;
         this.data = data;
     }
 
     @Override
     public String toString() {
-        return "Atividade [idAtividade=" + idAtividade + ", desc=" + desc + ", data=" + data + "]";
+        return "Atividade [idAtividade=" + idAtividade + ", descricao=" + descricao + ", data=" + data + "]";
     }
 
     @Override

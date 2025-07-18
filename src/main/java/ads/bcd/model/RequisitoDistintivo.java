@@ -16,18 +16,18 @@ public class RequisitoDistintivo {
     private Integer idRequisitoDistintivo;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String desc;
+    private String descricao;
 
     protected RequisitoDistintivo() {
     }
 
-    public RequisitoDistintivo(String desc) {
-        this.desc = desc;
+    public RequisitoDistintivo(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public String toString() {
-        return "RequisitoDistintivo [idRequisitoDistintivo=" + idRequisitoDistintivo + ", desc=" + desc + "]";
+        return "RequisitoDistintivo [idRequisitoDistintivo=" + idRequisitoDistintivo + ", descricao=" + descricao + "]";
     }
 
     @Override

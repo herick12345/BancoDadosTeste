@@ -16,18 +16,18 @@ public class DistintivosDeProgressao {
     private Integer idDistintivo;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String desc;
+    private String descricao;
 
     protected DistintivosDeProgressao() {
     }
 
-    public DistintivosDeProgressao(String desc) {
-        this.desc = desc;
+    public DistintivosDeProgressao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public String toString() {
-        return "DistintivosDeProgressao [idDistintivo=" + idDistintivo + ", desc=" + desc + "]";
+        return "DistintivosDeProgressao [idDistintivo=" + idDistintivo + ", descricao=" + descricao + "]";
     }
 
     @Override

@@ -19,7 +19,7 @@ public class RequisitosInsignia {
     private Integer idRequisitoInsignia;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String desc;
+    private String descricao;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_Insignia")
@@ -28,14 +28,14 @@ public class RequisitosInsignia {
     protected RequisitosInsignia() {
     }
 
-    public RequisitosInsignia(String desc, Insignia insignia) {
-        this.desc = desc;
+    public RequisitosInsignia(String descricao, Insignia insignia) {
+        this.descricao = descricao;
         this.insignia = insignia;
     }
 
     @Override
     public String toString() {
-        return "RequisitosInsignia [idRequisitoInsignia=" + idRequisitoInsignia + ", desc=" + desc + "]";
+        return "RequisitosInsignia [idRequisitoInsignia=" + idRequisitoInsignia + ", descricao=" + descricao + "]";
     }
 
     @Override
