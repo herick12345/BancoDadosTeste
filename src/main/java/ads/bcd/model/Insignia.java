@@ -5,7 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class Insignia {
 
@@ -20,22 +22,6 @@ public class Insignia {
     }
 
     public Insignia(String nome) {
-        this.nome = nome;
-    }
-
-    public Integer getIdInsignia() {
-        return idInsignia;
-    }
-
-    public void setIdInsignia(Integer idInsignia) {
-        this.idInsignia = idInsignia;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
         this.nome = nome;
     }
 

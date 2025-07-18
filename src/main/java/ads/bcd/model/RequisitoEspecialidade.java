@@ -8,7 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 @Entity
 public class RequisitoEspecialidade {
 
@@ -28,30 +30,6 @@ public class RequisitoEspecialidade {
 
     public RequisitoEspecialidade(String requisito, Especialidade especialidade) {
         this.requisito = requisito;
-        this.especialidade = especialidade;
-    }
-
-    public Integer getIdRequisito() {
-        return idRequisito;
-    }
-
-    public void setIdRequisito(Integer idRequisito) {
-        this.idRequisito = idRequisito;
-    }
-
-    public String getRequisito() {
-        return requisito;
-    }
-
-    public void setRequisito(String requisito) {
-        this.requisito = requisito;
-    }
-
-    public Especialidade getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(Especialidade especialidade) {
         this.especialidade = especialidade;
     }
 

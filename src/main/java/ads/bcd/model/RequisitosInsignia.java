@@ -8,7 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 @Entity
 public class RequisitosInsignia {
 
@@ -28,30 +30,6 @@ public class RequisitosInsignia {
 
     public RequisitosInsignia(String desc, Insignia insignia) {
         this.desc = desc;
-        this.insignia = insignia;
-    }
-
-    public Integer getIdRequisitoInsignia() {
-        return idRequisitoInsignia;
-    }
-
-    public void setIdRequisitoInsignia(Integer idRequisitoInsignia) {
-        this.idRequisitoInsignia = idRequisitoInsignia;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Insignia getInsignia() {
-        return insignia;
-    }
-
-    public void setInsignia(Insignia insignia) {
         this.insignia = insignia;
     }
 

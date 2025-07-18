@@ -11,7 +11,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.Data;
 
+@Data
 @Entity
 @IdClass(JovemRequisitoEspecialidadeId.class)
 public class JovemRequisitoEspecialidade {
@@ -38,31 +40,6 @@ public class JovemRequisitoEspecialidade {
         this.requisito = requisito;
         this.data = data;
     }
-
-    public Jovem getJovem() {
-        return jovem;
-    }
-
-    public void setJovem(Jovem jovem) {
-        this.jovem = jovem;
-    }
-
-    public RequisitoEspecialidade getRequisito() {
-        return requisito;
-    }
-
-    public void setRequisito(RequisitoEspecialidade requisito) {
-        this.requisito = requisito;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
     @Override
     public String toString() {
         return "JovemRequisitoEspecialidade [jovem=" + jovem.getNome() + 

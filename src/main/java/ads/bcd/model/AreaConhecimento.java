@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+
+@Data
 @Entity
 public class AreaConhecimento {
 
@@ -23,21 +26,6 @@ public class AreaConhecimento {
         this.nome = nome;
     }
 
-    public Integer getIdAreaConhecimento() {
-        return idAreaConhecimento;
-    }
-
-    public void setIdAreaConhecimento(Integer idAreaConhecimento) {
-        this.idAreaConhecimento = idAreaConhecimento;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     @Override
     public String toString() {

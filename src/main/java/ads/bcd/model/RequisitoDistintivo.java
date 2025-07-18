@@ -5,7 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class RequisitoDistintivo {
 
@@ -20,22 +22,6 @@ public class RequisitoDistintivo {
     }
 
     public RequisitoDistintivo(String desc) {
-        this.desc = desc;
-    }
-
-    public Integer getIdRequisitoDistintivo() {
-        return idRequisitoDistintivo;
-    }
-
-    public void setIdRequisitoDistintivo(Integer idRequisitoDistintivo) {
-        this.idRequisitoDistintivo = idRequisitoDistintivo;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
         this.desc = desc;
     }
 

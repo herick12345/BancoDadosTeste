@@ -5,7 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class DistintivosDeProgressao {
 
@@ -20,22 +22,6 @@ public class DistintivosDeProgressao {
     }
 
     public DistintivosDeProgressao(String desc) {
-        this.desc = desc;
-    }
-
-    public Integer getIdDistintivo() {
-        return idDistintivo;
-    }
-
-    public void setIdDistintivo(Integer idDistintivo) {
-        this.idDistintivo = idDistintivo;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
         this.desc = desc;
     }
 

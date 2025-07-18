@@ -5,7 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class Contato {
 
@@ -28,38 +30,6 @@ public class Contato {
     public Contato(String telefone, String endereco, String email) {
         this.telefone = telefone;
         this.endereco = endereco;
-        this.email = email;
-    }
-
-    public Integer getIdContato() {
-        return idContato;
-    }
-
-    public void setIdContato(Integer idContato) {
-        this.idContato = idContato;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
     }
 

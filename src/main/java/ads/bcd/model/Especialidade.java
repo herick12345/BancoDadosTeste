@@ -8,7 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
+@Data
 @Entity
 public class Especialidade {
 
@@ -36,46 +38,6 @@ public class Especialidade {
         this.descricao = descricao;
         this.nivel = nivel;
         this.totalRequisitos = totalRequisitos;
-        this.areaConhecimento = areaConhecimento;
-    }
-
-    public Integer getIdEspecialidade() {
-        return idEspecialidade;
-    }
-
-    public void setIdEspecialidade(Integer idEspecialidade) {
-        this.idEspecialidade = idEspecialidade;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Integer getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(Integer nivel) {
-        this.nivel = nivel;
-    }
-
-    public Integer getTotalRequisitos() {
-        return totalRequisitos;
-    }
-
-    public void setTotalRequisitos(Integer totalRequisitos) {
-        this.totalRequisitos = totalRequisitos;
-    }
-
-    public AreaConhecimento getAreaConhecimento() {
-        return areaConhecimento;
-    }
-
-    public void setAreaConhecimento(AreaConhecimento areaConhecimento) {
         this.areaConhecimento = areaConhecimento;
     }
 

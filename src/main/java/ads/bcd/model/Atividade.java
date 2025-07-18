@@ -9,7 +9,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.Data;
 
+
+@Data
 @Entity
 public class Atividade {
 
@@ -29,30 +32,6 @@ public class Atividade {
 
     public Atividade(String desc, Date data) {
         this.desc = desc;
-        this.data = data;
-    }
-
-    public Integer getIdAtividade() {
-        return idAtividade;
-    }
-
-    public void setIdAtividade(Integer idAtividade) {
-        this.idAtividade = idAtividade;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
         this.data = data;
     }
 
