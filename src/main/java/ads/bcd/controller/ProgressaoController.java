@@ -3,9 +3,7 @@ package ads.bcd.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +17,14 @@ import ads.bcd.model.JovemRequisitoEspecialidade;
 import ads.bcd.service.ProgressaoService;
 
 @RestController
-@RequestMapping("/api/progressao")
-@CrossOrigin(origins = "*")
+@RequestMapping("api/progressao")
 public class ProgressaoController {
 
-    @Autowired
-    private ProgressaoService progressaoService;
+    private final ProgressaoService progressaoService;
+
+    public ProgressaoController(ProgressaoService progressaoService) {
+        this.progressaoService = progressaoService;
+    }
 
     @GetMapping("/jovem/{idJovem}")
     public ResponseEntity<ProgressaoJovemDTO> obterProgressaoJovem(@PathVariable Integer idJovem) {

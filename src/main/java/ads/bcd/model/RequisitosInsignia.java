@@ -8,10 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "requisitos_insignia")
 public class RequisitosInsignia {
 
     @Id
@@ -31,28 +33,5 @@ public class RequisitosInsignia {
     public RequisitosInsignia(String descricao, Insignia insignia) {
         this.descricao = descricao;
         this.insignia = insignia;
-    }
-
-    @Override
-    public String toString() {
-        return "RequisitosInsignia [idRequisitoInsignia=" + idRequisitoInsignia + ", descricao=" + descricao + "]";
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((idRequisitoInsignia == null) ? 0 : idRequisitoInsignia.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        RequisitosInsignia other = (RequisitosInsignia) obj;
-        return idRequisitoInsignia != null && idRequisitoInsignia.equals(other.idRequisitoInsignia);
     }
 }

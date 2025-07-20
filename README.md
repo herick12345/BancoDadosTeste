@@ -1,8 +1,7 @@
-# Sistema Escoteiro - Ramo Lobinho
+# Trabalho - Banco de Dados
+Aluno: Herick
 
-Sistema de gerenciamento para o ramo lobinho do movimento escoteiro, desenvolvido em Spring Boot com frontend web.
-
-## 🏕️ Funcionalidades
+## Funcionalidades
 
 - **Gestão de Jovens**: Cadastro completo com dados pessoais, contatos e responsáveis
 - **Especialidades**: Controle de especialidades por área de conhecimento
@@ -11,18 +10,10 @@ Sistema de gerenciamento para o ramo lobinho do movimento escoteiro, desenvolvid
 - **Insígnias**: Gerenciamento de insígnias de interesse especial
 - **Relatórios**: Relatórios de progressão e jovens aptos ao Cruzeiro do Sul
 
-## 🛠️ Tecnologias Utilizadas
-
-- **Backend**: Spring Boot 3.5.3, Spring Data JPA, MySQL
-- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap 5
-- **Banco de Dados**: MySQL 8.0 (Docker)
-- **Build**: Gradle 8.14.2
-- **Containerização**: Docker & Docker Compose
-
 ## 🚀 Como Executar
 
 ### Pré-requisitos
-- Java 17+
+- Java 21+
 - Docker e Docker Compose
 - VSCode (recomendado)
 

@@ -1,22 +1,16 @@
+
 package ads.bcd.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class RequisitoProgressaoDTO {
     private Integer idJovem;
     private Integer idRequisito;
 
-    public Integer getIdJovem() {
-        return idJovem;
-    }
-
-    public void setIdJovem(Integer idJovem) {
-        this.idJovem = idJovem;
-    }
-
-    public Integer getIdRequisito() {
-        return idRequisito;
-    }
-
-    public void setIdRequisito(Integer idRequisito) {
-        this.idRequisito = idRequisito;
-    }
 }
+

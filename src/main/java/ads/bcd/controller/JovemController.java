@@ -3,9 +3,7 @@ package ads.bcd.controller;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +17,14 @@ import ads.bcd.model.Jovem;
 import ads.bcd.service.JovemService;
 
 @RestController
-@RequestMapping("/api/jovens")
-@CrossOrigin(origins = "*")
+@RequestMapping("api/jovens")
 public class JovemController {
 
-    @Autowired
-    private JovemService jovemService;
+    private final JovemService jovemService;
+
+    public JovemController(JovemService jovemService) {
+        this.jovemService = jovemService;
+    }
 
     @GetMapping
     public List<Jovem> listarTodos() {

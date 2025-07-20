@@ -5,10 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "requisito_distintivo")
 public class RequisitoDistintivo {
 
     @Id
@@ -23,28 +25,5 @@ public class RequisitoDistintivo {
 
     public RequisitoDistintivo(String descricao) {
         this.descricao = descricao;
-    }
-
-    @Override
-    public String toString() {
-        return "RequisitoDistintivo [idRequisitoDistintivo=" + idRequisitoDistintivo + ", descricao=" + descricao + "]";
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((idRequisitoDistintivo == null) ? 0 : idRequisitoDistintivo.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        RequisitoDistintivo other = (RequisitoDistintivo) obj;
-        return idRequisitoDistintivo != null && idRequisitoDistintivo.equals(other.idRequisitoDistintivo);
     }
 }

@@ -8,10 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "especialidade")
 public class Especialidade {
 
     @Id
@@ -28,7 +30,7 @@ public class Especialidade {
     private Integer totalRequisitos;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idAreaConhecimento")
+    @JoinColumn(name = "id_area_conhecimento")
     private AreaConhecimento areaConhecimento;
 
     protected Especialidade() {
@@ -39,30 +41,5 @@ public class Especialidade {
         this.nivel = nivel;
         this.totalRequisitos = totalRequisitos;
         this.areaConhecimento = areaConhecimento;
-    }
-
-    @Override
-    public String toString() {
-        return "Especialidade [idEspecialidade=" + idEspecialidade + 
-               ", descricao=" + descricao + ", nivel=" + nivel + 
-               ", totalRequisitos=" + totalRequisitos + "]";
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((idEspecialidade == null) ? 0 : idEspecialidade.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Especialidade other = (Especialidade) obj;
-        return idEspecialidade != null && idEspecialidade.equals(other.idEspecialidade);
     }
 }

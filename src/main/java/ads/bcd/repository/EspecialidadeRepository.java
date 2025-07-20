@@ -6,8 +6,5 @@ import ads.bcd.model.Especialidade;
 
 public interface EspecialidadeRepository extends CrudRepository<Especialidade, Integer> {
     
-    /**
-     * Busca especialidades por nível
-     */
     List<Especialidade> findByNivel(Integer nivel);
 }

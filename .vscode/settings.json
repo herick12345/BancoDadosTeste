@@ -13,11 +13,9 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "Sistema Escoteiro - MySQL",
+            "name": "meumysql",
             "database": "bcd",
-            "username": "aluno",
-            "password": "aluno",
-            "connectionTimeout": 60000
+            "username": "aluno"
         }
     ],
     "sqltools.useNodeRuntime": true,

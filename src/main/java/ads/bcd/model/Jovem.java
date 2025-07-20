@@ -1,8 +1,9 @@
 package ads.bcd.model;
 
-import java.util.Date;
+import java.time.LocalDate; 
 
-import jakarta.persistence.Column;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column; 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -10,28 +11,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "jovem") 
 public class Jovem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idJovem;
+    private Integer idJovem; // Agora corresponde diretamente à coluna idJovem no DB
 
     @Column(nullable = false, length = 100)
     private String nome;
 
-    @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
-    private Date dataNasc;
+    @Column(nullable = false) // Não precisa de @Temporal com LocalDate
+    private LocalDate dataNasc;
 
-    @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
-    private Date dataEntrada;
+    @Column(nullable = false) // Não precisa de @Temporal com LocalDate
+    private LocalDate dataEntrada;
 
     @Column(nullable = false, length = 10)
     private String tipoSanguineo;
@@ -39,14 +38,14 @@ public class Jovem {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String alergias;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idContato")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "id_contato", referencedColumnName = "idContato") 
     private Contato contato;
 
     protected Jovem() {
     }
 
-    public Jovem(String nome, Date dataNasc, Date dataEntrada, String tipoSanguineo, String alergias, Contato contato) {
+    public Jovem(String nome, LocalDate dataNasc, LocalDate dataEntrada, String tipoSanguineo, String alergias, Contato contato) {
         this.nome = nome;
         this.dataNasc = dataNasc;
         this.dataEntrada = dataEntrada;
@@ -55,38 +54,17 @@ public class Jovem {
         this.contato = contato;
     }
 
-
+    // O @Data do Lombok já gera o toString(), mas você pode sobrescrevê-lo para depuração
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Jovem [idJovem=").append(idJovem)
-          .append(", nome=").append(nome)
-          .append(", dataNasc=").append(dataNasc)
-          .append(", dataEntrada=").append(dataEntrada)
-          .append(", tipoSanguineo=").append(tipoSanguineo)
-          .append(", alergias=").append(alergias);
-        if (this.contato != null) {
-            sb.append(", contato=").append(contato);
-        }
-        sb.append("]");
-        return sb.toString();
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((idJovem == null) ? 0 : idJovem.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null || getClass() != obj.getClass())
-            return false;
-        Jovem other = (Jovem) obj;
-        return idJovem != null && idJovem.equals(other.idJovem);
+        return "Jovem{" +
+               "idJovem=" + idJovem +
+               ", nome='" + nome + '\'' +
+               ", dataNasc=" + dataNasc +
+               ", dataEntrada=" + dataEntrada +
+               ", tipoSanguineo='" + tipoSanguineo + '\'' +
+               ", alergias='" + alergias + '\'' +
+               ", contatoId=" + (contato != null ? contato.getIdContato() : "null") +
+               '}';
     }
 }

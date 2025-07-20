@@ -3,7 +3,6 @@ package ads.bcd.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ads.bcd.model.Jovem;
@@ -12,8 +11,11 @@ import ads.bcd.repository.JovemRepository;
 @Service
 public class JovemService {
 
-    @Autowired
-    private JovemRepository jovemRepository;
+    private final JovemRepository jovemRepository;
+
+    public JovemService(JovemRepository jovemRepository) {
+        this.jovemRepository = jovemRepository;
+    }
 
     public List<Jovem> listarTodos() {
         return (List<Jovem>) jovemRepository.findAll();

@@ -1,19 +1,18 @@
 package ads.bcd.dto;
 
 import java.util.List;
-import java.util.Map;
-
-import ads.bcd.model.Jovem;
+import java.util.Map; // Mantenha Map por enquanto para "especialidades" como você tinha
 
 public class ProgressaoJovemDTO {
-    private Jovem jovem;
-    private List<Map<String, Object>> especialidades;
+    private JovemDTO jovem; // Agora é JovemDTO
+    private List<Map<String, Object>> especialidades; // Mantenha como Map por enquanto
 
-    public Jovem getJovem() {
+    // Getters e Setters
+    public JovemDTO getJovem() {
         return jovem;
     }
 
-    public void setJovem(Jovem jovem) {
+    public void setJovem(JovemDTO jovem) {
         this.jovem = jovem;
     }
 

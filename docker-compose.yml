@@ -14,7 +14,7 @@ services:
       MYSQL_PASSWORD: aluno
       MYSQL_ROOT_HOST: '%'
     volumes:
-      - meumysql_data:/var/lib/mysql
+      - ./ddl-dml.sql:/docker-entrypoint-initdb.d/ddl-dml.sql:ro
 
 volumes:
   meumysql_data:
