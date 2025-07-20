@@ -54,11 +54,11 @@ public class RelatorioService {
         
         // Contadores básicos
         List<Jovem> todosJovens = StreamSupport.stream(jovemRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<Especialidade> todasEspecialidades = StreamSupport.stream(especialidadeRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<JovemRequisitoEspecialidade> todosRequisitos = StreamSupport.stream(jovemRequisitoEspecialidadeRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         
         estatisticas.put("totalJovens", todosJovens.size());
         estatisticas.put("totalEspecialidades", todasEspecialidades.size());
@@ -94,7 +94,7 @@ public class RelatorioService {
     public Map<String, Object> obterJovensPorNivel() {
         Map<String, Object> relatorio = new HashMap<>();
         List<Jovem> todosJovens = StreamSupport.stream(jovemRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         
         Map<String, List<Map<String, Object>>> jovensClassificados = new HashMap<>();
         jovensClassificados.put(INICIANTES, new ArrayList<>());
@@ -134,9 +134,9 @@ public class RelatorioService {
 
     public List<Map<String, Object>> obterEspecialidadesMaisPopulares() {
         List<Especialidade> todasEspecialidades = StreamSupport.stream(especialidadeRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<JovemRequisitoEspecialidade> todosRequisitos = StreamSupport.stream(jovemRequisitoEspecialidadeRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<Map<String, Object>> ranking = new ArrayList<>();
         
         for (Especialidade esp : todasEspecialidades) {
@@ -164,17 +164,17 @@ public class RelatorioService {
 
     public List<Map<String, Object>> obterProgressaoPorArea() {
         List<AreaConhecimento> todasAreas = StreamSupport.stream(areaConhecimentoRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<Especialidade> todasEspecialidades = StreamSupport.stream(especialidadeRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<JovemRequisitoEspecialidade> todosRequisitos = StreamSupport.stream(jovemRequisitoEspecialidadeRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<Map<String, Object>> progressao = new ArrayList<>();
         
         for (AreaConhecimento area : todasAreas) {
             List<Especialidade> especialidadesArea = todasEspecialidades.stream()
-                .filter(esp -> esp.getAreaConhecimento().getIdAreaConhecimento().equals(area.getIdAreaConhecimento()))
-                .collect(Collectors.toList());
+                .filter((Especialidade esp) -> esp.getAreaConhecimento().getIdAreaConhecimento().equals(area.getIdAreaConhecimento()))
+                .toList();
             
             long totalRequisitosArea = especialidadesArea.stream()
                 .mapToLong(Especialidade::getTotalRequisitos)
@@ -182,7 +182,7 @@ public class RelatorioService {
             
             long requisitosCompletosArea = todosRequisitos.stream()
                 .filter(req -> especialidadesArea.stream()
-                    .anyMatch(esp -> esp.getIdEspecialidade().equals(req.getRequisito().getEspecialidade().getIdEspecialidade())))
+                    .anyMatch((Especialidade esp) -> esp.getIdEspecialidade().equals(req.getRequisito().getEspecialidade().getIdEspecialidade())))
                 .count();
             
             double percentualCompleto = totalRequisitosArea > 0 ? 
@@ -206,7 +206,7 @@ public class RelatorioService {
 
     public List<Map<String, Object>> obterJovensInativos() {
         List<Jovem> todosJovens = StreamSupport.stream(jovemRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<Map<String, Object>> jovensInativos = new ArrayList<>();
         LocalDate dataLimite = LocalDate.now().minusMonths(3); // Considera inativo se não tem atividade há 3 meses
         
@@ -240,7 +240,7 @@ public class RelatorioService {
 
     public List<Map<String, Object>> obterRankingProgressao() {
         List<Jovem> todosJovens = StreamSupport.stream(jovemRepository.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+                .toList();
         List<Map<String, Object>> ranking = new ArrayList<>();
         
         for (Jovem jovem : todosJovens) {
