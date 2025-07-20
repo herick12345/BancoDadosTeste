@@ -141,7 +141,7 @@ public class RelatorioService {
         
         for (Especialidade esp : todasEspecialidades) {
             long totalJovensComRequisitos = todosRequisitos.stream()
-                .filter(req -> req.getRequisito().getEspecialidade().getIdEspecialidade().equals(esp.getIdEspecialidade()))
+                .filter(req -> ((Especialidade) req.getRequisito().getEspecialidade()).getIdEspecialidade().equals(esp.getIdEspecialidade()))
                 .map(req -> req.getJovem().getIdJovem())
                 .distinct()
                 .count();
@@ -182,7 +182,7 @@ public class RelatorioService {
             
             long requisitosCompletosArea = todosRequisitos.stream()
                 .filter(req -> especialidadesArea.stream()
-                    .anyMatch((Especialidade esp) -> esp.getIdEspecialidade().equals(req.getRequisito().getEspecialidade().getIdEspecialidade())))
+                    .anyMatch(esp -> esp.getIdEspecialidade().equals(((Especialidade) req.getRequisito().getEspecialidade()).getIdEspecialidade())))
                 .count();
             
             double percentualCompleto = totalRequisitosArea > 0 ? 
@@ -249,7 +249,7 @@ public class RelatorioService {
             // Calcular especialidades em progresso
             Map<Integer, Long> requisitosPorEspecialidade = requisitos.stream()
                 .collect(Collectors.groupingBy(
-                    req -> req.getRequisito().getEspecialidade().getIdEspecialidade(),
+                    req -> ((Especialidade) req.getRequisito().getEspecialidade()).getIdEspecialidade(),
                     Collectors.counting()
                 ));
             
